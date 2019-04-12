@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+.grid-container{
+display: grid;
+grid-template-columns: auto auto auto;
+background-color:lightblue;
+padding: 10px;
+}
+
+.grid-item{
+background-color:white;
+border: 1px solid black;
+padding:20px;
+font-size: 30px;
+text-align: center;
+}
+
+.one, .two, .three{
+border-top: none;
+}
+
+.seven, .eight, .nine{
+border-bottom: none;
+}
+
+.one, .four, .seven{
+border-left: none;
+}
+
+.three, .six, .nine{
+border-right: none;
+}
+
+p{
+display:none;
+}
+
+input{
+width:100px;
+padding:25px;
+text-align:center;
+font-size:25px;
+}
+
+</style>
+
+<script>
+window.addEventListener("load", () => {
+
+const one = document.getElementById("one");
+const two = document.getElementById("two");
+const three = document.getElementById("three");
+const four = document.getElementById("four");
+const five = document.getElementById("five");
+const six = document.getElementById("six");
+const seven = document.getElementById("seven");
+const eight = document.getElementById("eight");
+const nine = document.getElementById("nine");
+const grid = document.querySelector(".grid-container");
+alert(one.innerText + " " + two.innerText);
+
+
+	grid.addEventListener("click", function(e){
+  		e.target.addEventListener("keypress", function(e) {
+				if(e.keyCode === 88 || e.keyCode === 79)
+				{
+					e.target.style.display = 'none';
+					const p = e.target.previousElementSibling;
+					p.style.display = 'block';
+					p.innerText = e.key;
+				}
+				else {
+					alert("Only X and O is allowed");
+				}	
+ 		});
+	});
+
+
+	const checkResult = () => {
+		
+	
+
+	};
+});
+</script>
+
+</head>
+<body>
+
+<div class="grid-container">
+  <div class="grid-item one">
+  	<p id="one">1</p>
+    <input type="text">
+  </div>
+  <div class="grid-item two">
+  	<p id="two">2</p>
+    <input type="text">
+  </div>
+  <div class="grid-item three">
+  	<p id="three">3</p>
+    <input type="text">
+  </div>  
+  <div class="grid-item four">
+  	<p id="four">4</p>
+    <input type="text">
+  </div>
+  <div class="grid-item five">
+  	<p id="five">5</p>
+    <input type="text">
+  </div>
+  <div class="grid-item six">
+  	<p id="six">6</p>
+    <input type="text">
+  </div>  
+  <div class="grid-item seven">
+  	<p id="seven">7</p>
+    <input type="text">
+  </div>
+  <div class="grid-item eight">
+  	<p id="eight">8</p>
+    <input type="text">
+  </div>
+  <div class="grid-item nine">
+  	<p id="nine">9</p>
+    <input type="text">
+  </div>  
+</div>
+
+
+
+</body>
+</html>
